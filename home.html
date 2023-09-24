@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gelasio:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="bg" >
+  <div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>   
+<nav>
+    <div class="wrapper">
+      <div class="logo"><a href="#">MedBook</a></div>
+      <input type="radio" name="slider" id="menu-btn">
+      <input type="radio" name="slider" id="close-btn">
+      <ul class="nav-links">
+        <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+        <li><a href="git.html">About Us</a></li>
+        <li>
+          <a href="#" class="desktop-item">Courses</a>
+          <input type="checkbox" id="showDrop">
+          <label for="showDrop" class="mobile-item">Dropdown Menu</label>
+          <ul class="drop-menu">
+            <li><a href="#">Ayurveda</a></li>
+            <li><a href="#">Unani</a></li>
+            <li><a href="#">Siddha</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="desktop-item">Features</a>
+          <input type="checkbox" id="showMega">
+          <label for="showMega" class="mobile-item">Features</label>
+          <div class="mega-box">
+            <div class="content">
+              <div class="row">
+                <header>Categories</header>
+                <ul class="mega-links">
+                  <li><a href="#">Subjects</a></li>
+                  <li><a href="#">Expert Suggestions</a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                </ul>
+              </div>
+              <div class="row">
+                <header>Email Services</header>
+                <ul class="mega-links">
+                  <li><a href="log.html">Login</a></li>
+                  <li><a href="#">Suggestions</a></li>
+                  <li><a href="sign.html">Sign Up</a></li>
+                  <li><a href="#"></a></li>
+                </ul>
+              </div>
+              <div class="row">
+                <header>Contact Us</header>
+                <ul class="mega-links">
+                  <li><a href="#">@e-mail</a></li>
+                  <li><a href="#">Phone</a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li><a href="#">Feedback</a></li>
+      </ul>
+      <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+    </div>
+  </nav>
+  
+  <div id="body-text">
+    <div class="title">Welcome the MedBook Library</div>
+    <center>
+      <form>
+        <label for="search">Search</label>
+        <input id="search" type="search" pattern=".*\S.*" required >
+        <span class="caret"></span>
+      </form>
+  </center>
+  </div>
+</div>
+</div>
+</body>
+</html>
