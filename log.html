@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<head>
+        <title>Glassmorphism login Form Tutorial in html css</title>
+     
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="log.css">
+    </head>
+    <body>
+        <nav>
+    <div class="wrapper">
+      <div class="logo"><a href="#">MedBook</a></div>
+      <input type="radio" name="slider" id="menu-btn">
+      <input type="radio" name="slider" id="close-btn">
+      <ul class="nav-links">
+        <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="git.html">About Us</a></li>
+        <li>
+          <a href="#" class="desktop-item">Courses</a>
+          <input type="checkbox" id="showDrop">
+          <label for="showDrop" class="mobile-item">Dropdown Menu</label>
+          <ul class="drop-menu">
+            <li><a href="#">Ayurveda</a></li>
+            <li><a href="#">Unani</a></li>
+            <li><a href="#">Siddha</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="desktop-item">Features</a>
+          <input type="checkbox" id="showMega">
+          <label for="showMega" class="mobile-item">Features</label>
+          <div class="mega-box">
+            <div class="content">
+              <div class="row">
+                <header>Categories</header>
+                <ul class="mega-links">
+                  <li><a href="#">Subjects</a></li>
+                  <li><a href="#">Expert Suggestions</a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                </ul>
+              </div>
+              <div class="row">
+                <header>Email Services</header>
+                <ul class="mega-links">
+                  <li><a href="#">Suggestions</a></li>
+                  <li><a href="#">Expert's Email Ids</a></li>
+                  <li><a href="#"></a></li>
+                </ul>
+              </div>
+              <div class="row">
+                <header>Contact Us</header>
+                <ul class="mega-links">
+                  <li><a href="#">@e-mail</a></li>
+                  <li><a href="#">Phone</a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li><a href="#">Feedback</a></li>
+      </ul>
+      <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+    </div>
+  </nav>
+        <div class="background">
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <form>
+            <h3>Login Here</h3>
+    
+            <label for="username">Username</label>
+            <input type="text" placeholder="Email or Phone" id="username">
+    
+            <label for="password">Password</label>
+            <input type="password" placeholder="Password" id="password">
+    
+            <button>Log In</button>
+            <div class="social">
+              <div class="go"><i class="fab fa-google"></i>  Google</div>
+              <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
+            </div>
+        </form>
+    </body>
+</html>
