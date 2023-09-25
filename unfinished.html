@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Search</title>
+  <link rel="stylesheet" href="byee.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gelasio:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="bg">
+      <div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+         
+    <nav>
+        <div class="wrapper">
+          <div class="logo"><a href="#">MedBook</a></div>
+          <input type="radio" name="slider" id="menu-btn">
+          <input type="radio" name="slider" id="close-btn">
+          <ul class="nav-links">
+            <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li>
+              <a href="#" class="desktop-item">Courses</a>
+              <input type="checkbox" id="showDrop">
+              <label for="showDrop" class="mobile-item">Dropdown Menu</label>
+              <ul class="drop-menu">
+                <li><a href="#">Ayurveda</a></li>
+                <li><a href="#">Unani</a></li>
+                <li><a href="#">Siddha</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="desktop-item">Features</a>
+              <input type="checkbox" id="showMega">
+              <label for="showMega" class="mobile-item">Features</label>
+              <div class="mega-box">
+                <div class="content">
+                  <div class="row">
+                    <header>Categories</header>
+                    <ul class="mega-links">
+                      <li><a href="#">Subjects</a></li>
+                      <li><a href="#">Expert Suggestions</a></li>
+                      <!-- Add more categories here -->
+                    </ul>
+                  </div>
+                  <!-- Add more content rows here -->
+                </div>
+              </div>
+            </li>
+            <li><a href="#">Feedback</a></li>
+          </ul>
+          <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+        </div>
+    </nav>
+    
+    <div class="body-text">
+      <div class="title">Welcome to the MedBook Library</div>
+      <form class="search-form" id="book-search-form">
+          <label for="search">Search for a Book:</label>
+          <input id="search" type="search" pattern=".*\S.*" required>
+          <button type="submit" id="search-button">Search</button>
+      </form>
+      <div id="search-results"></div>
+  </div>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('book-search-form');
+  const searchInput = document.getElementById('search');
+  const searchResults = document.getElementById('search-results');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const searchTerm = searchInput.value;
+    searchBooks(searchTerm);
+  });
+
+  function searchBooks(query) {
+    const apiUrl = `https://openlibrary.org/search.json?q=${encodeURIComponent(query)}`;
+
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        displayResults(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  }
+
+  function displayResults(data) {
+    searchResults.innerHTML = ''; // Clear previous results
+    const books = data.docs;
+
+    if (books.length === 0) {
+      searchResults.textContent = 'No results found.';
+    } else {
+      const ul = document.createElement('ul');
+      ul.classList.add('book-list');
+
+      books.forEach((book) => {
+        if (book.cover_i) {
+          const li = document.createElement('li');
+          li.classList.add('book-entry');
+
+          const img = document.createElement('img');
+          img.src = `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`;
+          img.alt = `Cover for ${book.title_suggest}`;
+          li.appendChild(img);
+
+          const details = document.createElement('div');
+          details.classList.add('book-details');
+
+          const title = document.createElement('h2');
+          title.textContent = book.title_suggest;
+          details.appendChild(title);
+
+          if (book.author_name && book.author_name.length > 0) {
+            const authors = document.createElement('p');
+            authors.textContent = `Author(s): ${book.author_name.join(', ')}`;
+            details.appendChild(authors);
+          }
+
+          if (book.first_publish_year) {
+            const year = document.createElement('p');
+            year.textContent = `Year of Publication: ${book.first_publish_year}`;
+            details.appendChild(year);
+          }
+
+          li.appendChild(details);
+          ul.appendChild(li);
+        }
+      });
+
+      searchResults.appendChild(ul);
+    }
+  }
+});
+</script>
+</body>
+</html>
